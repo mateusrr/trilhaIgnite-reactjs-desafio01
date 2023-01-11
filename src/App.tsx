@@ -12,8 +12,10 @@ export interface ITask {
 }
 
 export function App() {
+  /* estado da aplicação */
   const [tasks, setTasks] = useState<ITask[]>([]);
 
+  /* Salvado tasks no local storage */
   function loadSavedTasks() {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
@@ -30,11 +32,14 @@ export function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
 
+  /* adicionando nova task 
+     essa função deve ir para o Header*/
   function newTask(taskTitle: string) {
     setTasksSave([
-      ...tasks,
+      ...tasks, /* desetruturar para manter as que já existem. */
+      /* adicionando uma nova. */
       {
-        id: crypto.randomUUID(),
+        id: crypto.randomUUID(), /* irá gerar um id aleatório */
         title: taskTitle,
         isCompleted: false
       }
@@ -66,5 +71,3 @@ export function App() {
     </div>
   )
 }
-
-

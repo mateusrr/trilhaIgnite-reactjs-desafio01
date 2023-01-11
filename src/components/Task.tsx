@@ -17,6 +17,7 @@ export function Task({task, onDelete, onComplete} : Props) {
                 {task.isCompleted ? <BsFillCheckCircleFill/> : <div />}
             </button>
 
+            {/* O que fará com que as tarefas criadas apareçam em tela. */}
             <p className={task.isCompleted ? styles.textCompleted : ""}>{task.title}</p>
 
             <button 

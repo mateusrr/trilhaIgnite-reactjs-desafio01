@@ -10,11 +10,12 @@ interface Props {
 }
 
 export function Tasks({tasks, onDelete, onComplete} : Props) {
-    const tasksQtd = tasks.length;
-    const tasksCompleted = tasks.filter((task) => task.isCompleted).length;
+    const tasksQtd = tasks.length; /* Retornar quantidade de tasks */
+    const tasksCompleted = tasks.filter((task) => task.isCompleted).length; /* Filtrar quantas tasks foi concluídas. */
 
     return (
         <section className={styles.tasks}>
+            {/* Header compoe os títulos Tarefas criadas e Concluídas */}
             <header className={styles.header}>
                 <div>
                     <p>Tarefas criadas</p>
@@ -28,6 +29,7 @@ export function Tasks({tasks, onDelete, onComplete} : Props) {
             </header>
 
             <div className={styles.list}>
+                {/* Renderizando as tasks */}
                 {tasks.map((task) => (
                     <Task
                         key={task.id}
